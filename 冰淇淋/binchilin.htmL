@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="梅川伊芙的個人網頁，介紹我的興趣與生活。">
+  <meta name="keywords" content="梅川伊芙, 高雄高工, 動漫, 健身">
+  <meta name="author" content="梅川伊芙">
+  <title>梅川伊芙的個人網頁</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0; /* 備用背景顏色 */
+      background-image: url('https://img.goodfon.com/wallpaper/nbig/f/fa/lol-league-of-legends-skin-art-project-jax-jax.webp');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 100vh;
+      position: relative;
+      font-family: 'Noto Sans TC', Arial, sans-serif;
+      color: #333;
+    }
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.4);
+      z-index: 1;
+    }
+    .container {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: calc(80px + 2.5em) 20px 20px;
+      min-height: calc(100vh - 80px);
+    }
+    h1 {
+      color: rgb(92, 211, 247);
+      text-align: center;
+      font-size: clamp(1.8em, 5vw, 2.2em);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      z-index: 3;
+      margin: 0;
+    }
+    .section {
+      margin: 20px 0;
+      background: rgba(255, 255, 255, 0.8);
+      padding: clamp(10px, 4vw, 15px);
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+    .section:hover {
+      transform: scale(1.02);
+      background: rgba(255, 255, 255, 0.9);
+    }
+    .section h2 {
+      text-align: center;
+      font-size: 1.8em;
+      color: rgb(92, 211, 247);
+      margin: 0 0 15px 0;
+    }
+    .section p {
+      font-size: 1.1em;
+      line-height: 1.6;
+      margin: 0;
+      color: #000; /* 段落文字為黑色 */
+      text-align: center; /* 段落文字置中 */
+    }
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr); /* 五列均分 */
+      gap: 10px; /* 格子間距 */
+      padding: 10px 0;
+    }
+    .grid-item {
+      height: 300px; /* 固定高度 */
+      overflow: hidden; /* 防止圖片溢出 */
+      position: relative;
+      border: 1px solid #ddd; /* 添加邊框以便檢查格子 */
+    }
+    .grid-item a {
+      display: block;
+      height: 100%;
+      text-decoration: none; /* 移除超連結底線 */
+    }
+    .grid-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* 確保圖片填滿格子並保持比例 */
+      transition: transform 0.3s ease; /* 過渡效果 */
+    }
+    .grid-item img:hover {
+      transform: translateY(-10px); /* 鼠標停留時向上浮動 */
+    }
+    .quote-section {
+      margin: 20px 0;
+      background: rgba(255, 255, 255, 0.8);
+      padding: clamp(10px, 4vw, 15px);
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    .quote-section p {
+      font-size: 1.2em;
+      color: rgb(92, 211, 247);
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>歡迎來到 梅川伊芙的個人網頁</h1>
+  <div class="container">
+    <div class="section">
+      <h2>關於我的大小事</h2>
+      <p>高雄高工 資三甲學生</p>
+    </div>
+    <div class="section">
+      <h2>興趣</h2>
+      <p>動漫/小說/打遊戲還有健身</p>
+    </div>
+    <div class="section">
+      <h2>老婆展示</h2>
+      <div class="grid-container">
+        <div class="grid-item"><a href="https://newkomica-kari.fandom.com/zh-tw/wiki/Ishtar_(Fate)" target="_blank"><img src="圖片/ista.png" alt="角色1"></a></div>
+        <div class="grid-item"><a href="https://wiki.biligame.com/sr/%E9%93%B6%E7%8B%BC" target="_blank"><img src="圖片/silver wolf.png" alt="角色2"></a></div>
+        <div class="grid-item"><a href="https://zh.moegirl.org.cn/zh-tw/%E6%91%A9%E6%A0%B9(Fate/Grand_Order)#" target="_blank"><img src="圖片/morgan.png" alt="角色3"></a></div>
+        <div class="grid-item"><a href="https://newkomica-kari.fandom.com/zh-tw/wiki/%E5%95%9F%E7%A4%BA%E9%8C%84%E4%B9%8B%E7%8D%B8_(Fate)" target="_blank"><img src="圖片/nero.png" alt="角色4"></a></div>
+        <div class="grid-item"><a href="https://zh.moegirl.org.cn/zh-tw/%E5%8F%AF%E9%9C%B2%E5%87%AF(%E5%B0%91%E5%89%8D2%EF%BC%9A%E8%BF%BD%E6%94%BE)#" target="_blank"><img src="圖片/416.png" alt="角色5"></a></div>
+      </div>
+    </div>
+    <div class="quote-section">
+      <p>我喜歡的一句話：地瓜開心的話會變什麼？地瓜葉</p>
+    </div>
+  </div>
+</body>
+</html>
