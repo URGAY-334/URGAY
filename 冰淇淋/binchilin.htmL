@@ -1,145 +1,170 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-TW"> <!-- 設定語言為繁體中文，提升可訪問性和 SEO -->
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="梅川伊芙的個人網頁，介紹我的興趣與生活。">
-  <meta name="keywords" content="梅川伊芙, 高雄高工, 動漫, 健身">
-  <meta name="author" content="梅川伊芙">
-  <title>梅川伊芙的個人網頁</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8"> <!-- 設定字符編碼為 UTF-8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 確保響應式設計，適應行動裝置 -->
+  <meta name="description" content="梅川伊芙的個人網頁，介紹興趣與喜愛的角色"> <!-- SEO 描述 -->
+  <title>梅川伊芙的個人網頁</title> <!-- 網頁標題 -->
   <style>
+    /* 全局樣式 */
     body {
-      margin: 0;
-      padding: 0;
-      background-color: #f0f0f0; /* 備用背景顏色 */
-      background-image: url('image/w.png');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      min-height: 100vh;
-      position: relative;
-      font-family: 'Noto Sans TC', Arial, sans-serif;
-      color: #333;
+      margin: 0;                               /* 移除預設外邊距 */
+      font-family: Arial, sans-serif;          /* 設定字體為 Arial 或系統預設無襯線字體 */
+      background: url('image/w.png') no-repeat center center fixed; /* 設定背景圖片，固定位置 */
+      background-size: cover;                  /* 背景圖片覆蓋整個視窗 */
+      background-color: #f0f0f0;              /* 備用背景色，若圖片載入失敗 */
+      position: relative;                      /* 為偽元素提供定位參考 */
     }
     body::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(255, 255, 255, 0.4);
-      z-index: 1;
+      content: '';                            /* 偽元素內容為空 */
+      position: fixed;                        /* 固定定位，覆蓋整個視窗 */
+      top: 0;                                 /* 頂部對齊 */
+      left: 0;                                /* 左側對齊 */
+      width: 100%;                            /* 寬度 100% */
+      height: 100%;                           /* 高度 100% */
+      background-color: rgba(255, 255, 255, 0.4); /* 半透明白色遮罩，提升文字可讀性 */
+      z-index: 1;                             /* 確保遮罩位於背景圖片之上，內容之下 */
     }
     .container {
-      position: relative;
-      z-index: 2;
-      max-width: 800px;
-      margin: 0 auto;
-      padding: calc(80px + 2.5em) 20px 20px;
-      min-height: calc(100vh - 80px);
+      position: relative;                     /* 相對定位，確保內容在遮罩上方 */
+      z-index: 2;                             /* 高於遮罩的層次 */
+      max-width: 800px;                       /* 最大寬度 800px，限制內容寬度 */
+      margin: 0 auto;                         /* 水平置中 */
+      padding: calc(80px + 2.5em) 20px 20px; /* 頂部內邊距考慮標題高度，左右底部內邊距 20px */
+      min-height: calc(100vh - 80px);         /* 最小高度確保內容填滿視窗減去標題空間 */
     }
     h1 {
-      color: rgb(92, 211, 247);
-      text-align: center;
-      font-size: clamp(1.8em, 5vw, 2.2em);
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-      position: fixed;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100%;
-      z-index: 3;
-      margin: 0;
+      color: rgb(92, 211, 247);               /* 青色文字 */
+      text-align: center;                     /* 文字置中 */
+      font-size: clamp(1.8em, 5vw, 2.2em);    /* 響應式字體大小，限制在 1.8em 到 2.2em */
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 文字陰影，增加立體感 */
+      position: fixed;                        /* 固定定位，保持在視窗頂部 */
+      top: 20px;                              /* 距離頂部 20px */
+      left: 50%;                              /* 水平置中起點 */
+      transform: translateX(-50%);             /* 水平偏移 -50% 實現置中 */
+      width: auto;                            /* 寬度自適應內容 */
+      display: inline-block;                  /* 使背景緊貼文字 */
+      background: rgba(255, 255, 255, 0.8);   /* 半透明白色背景，與區塊一致但更緊湊 */
+      padding: 10px 20px;                     /* 內邊距，上下 10px，左右 20px */
+      border-radius: 10px;                    /* 圓角邊框，與區塊一致 */
+      z-index: 3;                             /* 確保標題在所有內容之上 */
+      margin: 0;                              /* 移除外邊距 */
     }
     .section {
-      margin: 20px 0;
-      background: rgba(255, 255, 255, 0.8);
-      padding: clamp(10px, 4vw, 15px);
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease, background 0.3s ease;
+      margin: 20px 0;                         /* 上下外邊距 20px */
+      background: rgba(255, 255, 255, 0.8);   /* 半透明白色背景 */
+      padding: clamp(10px, 4vw, 15px);        /* 響應式內邊距，10px 到 15px */
+      border-radius: 10px;                    /* 圓角邊框 */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 輕微陰影，增加層次感 */
+      transition: transform 0.3s ease, background 0.3s ease; /* 滑鼠懸停時的平滑過渡效果 */
     }
     .section:hover {
-      transform: scale(1.02);
-      background: rgba(255, 255, 255, 0.9);
+      transform: scale(1.02);                 /* 懸停時放大 2% */
+      background: rgba(255, 255, 255, 0.9);   /* 懸停時增加背景不透明度 */
     }
     .section h2 {
-      text-align: center;
-      font-size: 1.8em;
-      color: rgb(92, 211, 247);
-      margin: 0 0 15px 0;
+      text-align: center;                     /* 標題置中 */
+      font-size: 1.8em;                       /* 字體大小 1.8em */
+      color: rgb(92, 211, 247);               /* 青色標題 */
+      margin: 0 0 15px 0;                     /* 下外邊距 15px */
     }
     .section p {
-      font-size: 1.1em;
-      line-height: 1.6;
-      margin: 0;
-      color: #000; /* 段落文字為黑色 */
-      text-align: center; /* 段落文字置中 */
+      font-size: 1.1em;                       /* 段落字體大小 1.1em */
+      line-height: 1.6;                       /* 行高 1.6，提升可讀性 */
+      margin: 0;                              /* 移除外邊距 */
+      color: #000;                            /* 黑色文字 */
+      text-align: center;                     /* 段落文字置中 */
     }
     .grid-container {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr); /* 五列均分 */
-      gap: 10px; /* 格子間距 */
-      padding: 10px 0;
+      display: grid;                          /* 使用 CSS Grid 佈局 */
+      grid-template-columns: repeat(5, 1fr);  /* 五欄均分 */
+      gap: 10px;                              /* 格子間距 10px */
+      padding: 10px 0;                        /* 上下內邊距 10px */
     }
     .grid-item {
-      height: 300px; /* 固定高度 */
-      overflow: hidden; /* 防止圖片溢出 */
-      position: relative;
-      border: 1px solid #ddd; /* 添加邊框以便檢查格子 */
+      height: 300px;                          /* 固定高度 300px */
+      overflow: hidden;                       /* 防止圖片溢出 */
+      position: relative;                     /* 相對定位，用於內部元素 */
+      border: 1px solid #ddd;                 /* 輕灰色邊框，方便檢查格子 */
     }
     .grid-item a {
-      display: block;
-      height: 100%;
-      text-decoration: none; /* 移除超連結底線 */
+      display: block;                         /* 超連結填充整個格子 */
+      height: 100%;                           /* 高度 100% */
+      text-decoration: none;                  /* 移除超連結底線 */
     }
     .grid-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover; /* 確保圖片填滿格子並保持比例 */
-      transition: transform 0.3s ease; /* 過渡效果 */
+      width: 100%;                            /* 圖片寬度 100% */
+      height: 100%;                           /* 圖片高度 100% */
+      object-fit: cover;                      /* 圖片填滿格子，保持比例 */
+      transition: transform 0.3s ease;        /* 滑鼠懸停時的平滑過渡效果 */
     }
     .grid-item img:hover {
-      transform: translateY(-10px); /* 鼠標停留時向上浮動 */
+      transform: translateY(-10px);           /* 懸停時圖片向上浮動 10px */
     }
     .quote-section {
-      margin: 20px 0;
-      background: rgba(255, 255, 255, 0.8);
-      padding: clamp(10px, 4vw, 15px);
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      text-align: center;
+      margin: 20px 0;                         /* 上下外邊距 20px */
+      background: rgba(255, 255, 255, 0.8);   /* 半透明白色背景 */
+      padding: clamp(10px, 4vw, 15px);        /* 響應式內邊距，10px 到 15px */
+      border-radius: 10px;                    /* 圓角邊框 */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 輕微陰影 */
+      text-align: center;                     /* 文字置中 */
     }
     .quote-section p {
-      font-size: 1.2em;
-      color: rgb(92, 211, 247);
-      margin: 0;
+      font-size: 1.2em;                       /* 字體大小 1.2em */
+      color: rgb(92, 211, 247);               /* 青色文字 */
+      margin: 0;                              /* 移除外邊距 */
+    }
+    .spotify-section iframe {
+      width: 100%;                            /* 播放器寬度 100% */
+      height: clamp(300px, 50vw, 360px);      /* 響應式高度，300px 到 360px */
+      border-radius: 10px;                    /* 圓角邊框，與其他區塊一致 */
+      border: none;                           /* 移除邊框 */
+    }
+    /* 響應式網格調整 - 小螢幕上減少欄數 */
+    @media (max-width: 768px) {
+      .grid-container {
+        grid-template-columns: repeat(3, 1fr); /* 平板上三欄 */
+      }
+    }
+    @media (max-width: 480px) {
+      .grid-container {
+        grid-template-columns: repeat(2, 1fr); /* 手機上兩欄 */
+      }
     }
   </style>
 </head>
 <body>
+  <!-- 頁面標題，固定在頂部 -->
   <h1>歡迎來到 梅川伊芙的個人網頁</h1>
+  <!-- 主內容容器 -->
   <div class="container">
+    <!-- 關於我區塊 -->
     <div class="section">
       <h2>關於我的大小事</h2>
       <p>高雄高工 資三甲學生</p>
     </div>
+    <!-- 興趣區塊 -->
     <div class="section">
       <h2>興趣</h2>
       <p>動漫/小說/打遊戲還有健身</p>
     </div>
+    <!-- Spotify 播放器區塊 -->
+    <div class="section spotify-section">
+      <h2>我的音樂品味</h2>
+      <iframe src="https://open.spotify.com/embed/playlist/3m9BVfzsc6zJmMvO1z9JK5" allow="encrypted-media" allowfullscreen></iframe>
+    </div>
+    <!-- 老婆展示區塊 -->
     <div class="section">
       <h2>老婆展示</h2>
       <div class="grid-container">
-        <div class="grid-item"><a href="https://newkomica-kari.fandom.com/zh-tw/wiki/Ishtar_(Fate)" target="_blank"><img src="image/ista.png" alt="角色1"></a></div>
-        <div class="grid-item"><a href="https://wiki.biligame.com/sr/%E9%93%B6%E7%8B%BC" target="_blank"><img src="image/silver wolf.png" alt="角色2"></a></div>
-        <div class="grid-item"><a href="https://zh.moegirl.org.cn/zh-tw/%E6%91%A9%E6%A0%B9(Fate/Grand_Order)#" target="_blank"><img src="image/morgan.png" alt="角色3"></a></div>
-        <div class="grid-item"><a href="https://newkomica-kari.fandom.com/zh-tw/wiki/%E5%95%9F%E7%A4%BA%E9%8C%84%E4%B9%8B%E7%8D%B8_(Fate)" target="_blank"><img src="image/nero.png" alt="角色4"></a></div>
-        <div class="grid-item"><a href="https://zh.moegirl.org.cn/zh-tw/%E5%8F%AF%E9%9C%B2%E5%87%AF(%E5%B0%91%E5%89%8D2%EF%BC%9A%E8%BF%BD%E6%94%BE)#" target="_blank"><img src="image/416.png" alt="角色5"></a></div>
+        <div class="grid-item"><a href="https://newkomica-kari.fandom.com/zh-tw/wiki/Ishtar_(Fate)" target="_blank"><img src="image/ista.png" alt="Fate系列伊絲塔" loading="lazy"></a></div>
+        <div class="grid-item"><a href="https://wiki.biligame.com/sr/%E9%93%B6%E7%8B%BC" target="_blank"><img src="image/silverwolf.png" alt="星穹鐵道銀狼" loading="lazy"></a></div>
+        <div class="grid-item"><a href="https://zh.moegirl.org.cn/zh-tw/%E6%91%A9%E6%A0%B9(Fate/Grand_Order)#" target="_blank"><img src="image/morgan.png" alt="Fate系列摩根" loading="lazy"></a></div>
+        <div class="grid-item"><a href="https://newkomica-kari.fandom.com/zh-tw/wiki/%E5%95%9F%E7%A4%BA%E9%8C%84%E4%B9%8B%E7%8D%B8_(Fate)" target="_blank"><img src="image/nero.png" alt="Fate系列尼祿" loading="lazy"></a></div>
+        <div class="grid-item"><a href="https://zh.moegirl.org.cn/zh-tw/%E5%8F%AF%E9%9C%B2%E5%87%AF(%E5%B0%91%E5%89%8D2%EF%BC%9A%E8%BF%BD%E6%94%BE)#" target="_blank"><img src="image/416.png" alt="少女前線2可露凱" loading="lazy"></a></div>
       </div>
     </div>
+    <!-- 名言區塊 -->
     <div class="quote-section">
       <p>我喜歡的一句話：地瓜開心的話會變什麼？地瓜葉</p>
     </div>
