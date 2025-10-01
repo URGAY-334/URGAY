@@ -1,162 +1,147 @@
 <!DOCTYPE html>
-<html lang="zh-TW"> <!-- 設定語言為繁體中文，提升可訪問性和 SEO -->
+<html lang="zh-TW">
 <head>
-  <meta charset="UTF-8"> <!-- 設定字符編碼為 UTF-8 -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 確保響應式設計，適應行動裝置 -->
-  <meta name="description" content="梅川伊芙的個人網頁，介紹興趣與喜愛的角色"> <!-- SEO 描述 -->
-  <title>梅川伊芙的個人網頁</title> <!-- 網頁標題 -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="梅川伊芙的個人網頁，介紹興趣與喜愛的角色">
+  <title>梅川伊芙的個人網頁</title>
   <style>
-    /* 全局樣式 */
     body {
-      margin: 0;                               /* 移除預設外邊距 */
-      font-family: Arial, sans-serif;          /* 設定字體為 Arial 或系統預設無襯線字體 */
-      background: url('image/w.png') no-repeat center center fixed; /* 設定背景圖片，固定位置 */
-      background-size: cover;                  /* 背景圖片覆蓋整個視窗 */
-      background-color: #f0f0f0;              /* 備用背景色，若圖片載入失敗 */
-      position: relative;                      /* 為偽元素提供定位參考 */
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url('image/w.png') no-repeat center center fixed;
+      background-size: cover;
+      background-color: #f0f0f0;
+      position: relative;
     }
     body::before {
-      content: '';                            /* 偽元素內容為空 */
-      position: fixed;                        /* 固定定位，覆蓋整個視窗 */
-      top: 0;                                 /* 頂部對齊 */
-      left: 0;                                /* 左側對齊 */
-      width: 100%;                            /* 寬度 100% */
-      height: 100%;                           /* 高度 100% */
-      background-color: rgba(255, 255, 255, 0.4); /* 半透明白色遮罩，提升文字可讀性 */
-      z-index: 1;                             /* 確保遮罩位於背景圖片之上，內容之下 */
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.4);
+      z-index: 1;
     }
     .container {
-      position: relative;                     /* 相對定位，確保內容在遮罩上方 */
-      z-index: 2;                             /* 高於遮罩的層次 */
-      max-width: 800px;                       /* 最大寬度 800px，限制內容寬度 */
-      margin: 0 auto;                         /* 水平置中 */
-      padding: calc(80px + 2.5em) 20px 20px; /* 頂部內邊距考慮標題高度，左右底部內邊距 20px */
-      min-height: calc(100vh - 80px);         /* 最小高度確保內容填滿視窗減去標題空間 */
+      position: relative;
+      z-index: 2;
+      max-width: min(80vw, 1000px); /* 動態最大寬度，適應不同螢幕 */
+      margin: 0 auto;
+      padding: calc(clamp(60px, 10vh, 80px) + 2.5em) clamp(15px, 3vw, 20px) clamp(15px, 3vw, 20px);
+      min-height: calc(100vh - clamp(60px, 10vh, 80px));
     }
     h1 {
-      color: rgb(92, 211, 247);               /* 青色文字 */
-      text-align: center;                     /* 文字置中 */
-      font-size: clamp(1.8em, 5vw, 2.2em);    /* 響應式字體大小，限制在 1.8em 到 2.2em */
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 文字陰影，增加立體感 */
-      position: fixed;                        /* 固定定位，保持在視窗頂部 */
-      top: 20px;                              /* 距離頂部 20px */
-      left: 50%;                              /* 水平置中起點 */
-      transform: translateX(-50%);             /* 水平偏移 -50% 實現置中 */
-      width: auto;                            /* 寬度自適應內容 */
-      display: inline-block;                  /* 使背景緊貼文字 */
-      background: rgba(255, 255, 255, 0.8);   /* 半透明白色背景，與區塊一致但更緊湊 */
-      padding: 10px 20px;                     /* 內邊距，上下 10px，左右 20px */
-      border-radius: 10px;                    /* 圓角邊框，與區塊一致 */
-      z-index: 3;                             /* 確保標題在所有內容之上 */
-      margin: 0;                              /* 移除外邊距 */
+      color: rgb(92, 211, 247);
+      text-align: center;
+      font-size: clamp(1.5em, 4vw, 2em); /* 動態字體大小 */
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      position: fixed;
+      top: clamp(10px, 2vw, 15px);
+      left: 50%;
+      transform: translateX(-50%);
+      width: auto;
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.8);
+      padding: clamp(8px, 2vw, 10px) clamp(15px, 3vw, 20px);
+      border-radius: 10px;
+      z-index: 3;
+      margin: 0;
     }
     .section {
-      margin: 20px 0;                         /* 上下外邊距 20px */
-      background: rgba(255, 255, 255, 0.8);   /* 半透明白色背景 */
-      padding: clamp(10px, 4vw, 15px);        /* 響應式內邊距，10px 到 15px */
-      border-radius: 10px;                    /* 圓角邊框 */
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 輕微陰影，增加層次感 */
-      transition: transform 0.3s ease, background 0.3s ease; /* 滑鼠懸停時的平滑過渡效果 */
+      margin: clamp(15px, 3vw, 20px) 0;
+      background: rgba(255, 255, 255, 0.8);
+      padding: clamp(10px, 4vw, 15px);
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, background 0.3s ease;
     }
     .section:hover {
-      transform: scale(1.02);                 /* 懸停時放大 2% */
-      background: rgba(255, 255, 255, 0.9);   /* 懸停時增加背景不透明度 */
+      transform: scale(1.02);
+      background: rgba(255, 255, 255, 0.9);
     }
     .section h2 {
-      text-align: center;                     /* 標題置中 */
-      font-size: 1.8em;                       /* 字體大小 1.8em */
-      color: rgb(92, 211, 247);               /* 青色標題 */
-      margin: 0 0 15px 0;                     /* 下外邊距 15px */
+      text-align: center;
+      font-size: clamp(1.5em, 3.5vw, 1.8em); /* 動態調整標題字體 */
+      color: rgb(92, 211, 247);
+      margin: 0 0 clamp(10px, 2vw, 15px) 0;
     }
-    .section p {
-      font-size: 1.1em;                       /* 段落字體大小 1.1em */
-      line-height: 1.6;                       /* 行高 1.6，提升可讀性 */
-      margin: 0;                              /* 移除外邊距 */
-      color: #000;                            /* 黑色文字 */
-      text-align: center;                     /* 段落文字置中 */
+    .section p, .section .game-list, .section .anime-list {
+      font-size: clamp(1em, 2.5vw, 1.2em); /* 動態調整段落字體 */
+      line-height: 1.6;
+      margin: 0 0 clamp(8px, 1.5vw, 12px) 0; /* 段落間距隨視窗縮放 */
+      color: #000;
+      text-align: center;
     }
     .grid-container {
-      display: grid;                          /* 使用 CSS Grid 佈局 */
-      grid-template-columns: repeat(5, 1fr);  /* 五欄均分 */
-      gap: 10px;                              /* 格子間距 10px */
-      padding: 10px 0;                        /* 上下內邊距 10px */
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* 動態格子大小 */
+      gap: clamp(8px, 2vw, 12px);
+      padding: 10px 0;
     }
     .grid-item {
-      height: 300px;                          /* 固定高度 300px */
-      overflow: hidden;                       /* 防止圖片溢出 */
-      position: relative;                     /* 相對定位，用於內部元素 */
-      border: 1px solid #ddd;                 /* 輕灰色邊框，方便檢查格子 */
+      height: clamp(200px, 25vw, 300px);
+      overflow: hidden;
+      position: relative;
+      border: none;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
     .grid-item a {
-      display: block;                         /* 超連結填充整個格子 */
-      height: 100%;                           /* 高度 100% */
-      text-decoration: none;                  /* 移除超連結底線 */
+      display: block;
+      height: 100%;
+      text-decoration: none;
     }
     .grid-item img {
-      width: 100%;                            /* 圖片寬度 100% */
-      height: 100%;                           /* 圖片高度 100% */
-      object-fit: cover;                      /* 圖片填滿格子，保持比例 */
-      transition: transform 0.3s ease;        /* 滑鼠懸停時的平滑過渡效果 */
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
     }
-    .grid-item img:hover {
-      transform: translateY(-10px);           /* 懸停時圖片向上浮動 10px */
+    .grid-item img:hover, .grid-item a:focus img {
+      transform: translateY(-10px);
+      outline: 2px solid rgb(92, 211, 247); /* 鍵盤導航支援 */
     }
     .quote-section {
-      margin: 20px 0;                         /* 上下外邊距 20px */
-      background: rgba(255, 255, 255, 0.8);   /* 半透明白色背景 */
-      padding: clamp(10px, 4vw, 15px);        /* 響應式內邊距，10px 到 15px */
-      border-radius: 10px;                    /* 圓角邊框 */
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 輕微陰影 */
-      text-align: center;                     /* 文字置中 */
+      margin: clamp(15px, 3vw, 20px) 0;
+      background: rgba(255, 255, 255, 0.8);
+      padding: clamp(10px, 4vw, 15px);
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      text-align: center;
     }
     .quote-section p {
-      font-size: 1.2em;                       /* 字體大小 1.2em */
-      color: rgb(92, 211, 247);               /* 青色文字 */
-      margin: 0;                              /* 移除外邊距 */
+      font-size: clamp(1.1em, 3vw, 1.3em); /* 動態調整名言字體 */
+      color: rgb(92, 211, 247);
+      margin: 0;
+      line-height: 1.6;
     }
     .spotify-section iframe {
-      width: 100%;                            /* 播放器寬度 100% */
-      height: clamp(300px, 50vw, 360px);      /* 響應式高度，300px 到 360px */
-      border-radius: 10px;                    /* 圓角邊框，與其他區塊一致 */
-      border: none;                           /* 移除邊框 */
-    }
-    /* 響應式網格調整 - 小螢幕上減少欄數 */
-    @media (max-width: 768px) {
-      .grid-container {
-        grid-template-columns: repeat(3, 1fr); /* 平板上三欄 */
-      }
-    }
-    @media (max-width: 480px) {
-      .grid-container {
-        grid-template-columns: repeat(2, 1fr); /* 手機上兩欄 */
-      }
+      width: 100%;
+      height: clamp(250px, 45vw, 360px);
+      border-radius: 10px;
+      border: none;
     }
   </style>
 </head>
 <body>
-  <!-- 頁面標題，固定在頂部 -->
   <h1>歡迎來到 梅川伊芙的個人網頁</h1>
-  <!-- 主內容容器 -->
-  <div class="container">
-    <!-- 關於我區塊 -->
-    <div class="section">
+  <main class="container">
+    <section class="section">
       <h2>關於我的大小事</h2>
       <p>高雄高工 資三甲學生</p>
-    </div>
-    <!-- 興趣區塊 -->
-    <div class="section">
+    </section>
+    <section class="section">
       <h2>興趣</h2>
       <p>動漫/小說/打遊戲還有健身</p>
-      <p2>遊戲坑單：明日方舟/崩壞：星穹鐵道/決區零/FGO宇宙神遊/少前二/特戰英豪/三角洲</p>
-      <p3>動漫深坑：Fate系列</p3>
-    </div>
-    <!-- Spotify 播放器區塊 -->
-    <div class="section spotify-section">
+      <p class="game-list">遊戲坑單：明日方舟/崩壞：星穹鐵道/決區零/FGO宇宙神遊/少前二/特戰英豪/三角洲</p>
+      <p class="anime-list">動漫深坑：Fate系列</p>
+    </section>
+    <section class="section spotify-section">
       <h2>我的歌單</h2>
-      <iframe src="https://open.spotify.com/embed/playlist/3m9BVfzsc6zJmMvO1z9JK5" allow="encrypted-media" allowfullscreen></iframe>
-    </div>
-    <!-- 老婆展示區塊 -->
-    <div class="section">
+      <iframe src="https://open.spotify.com/embed/playlist/3m9BVfzsc6zJmMvO1z9JK5" allow="encrypted-media; clipboard-write" style="border-radius: 10px;" frameborder="0"></iframe>
+    </section>
+    <section class="section">
       <h2>老婆展示</h2>
       <div class="grid-container">
         <div class="grid-item"><a href="https://newkomica-kari.fandom.com/zh-tw/wiki/Ishtar_(Fate)" target="_blank"><img src="image/ista.png" alt="Fate系列伊絲塔" loading="lazy"></a></div>
@@ -165,11 +150,10 @@
         <div class="grid-item"><a href="https://newkomica-kari.fandom.com/zh-tw/wiki/%E5%95%9F%E7%A4%BA%E9%8C%84%E4%B9%8B%E7%8D%B8_(Fate)" target="_blank"><img src="image/nero.png" alt="Fate系列尼祿" loading="lazy"></a></div>
         <div class="grid-item"><a href="https://zh.moegirl.org.cn/zh-tw/%E5%8F%AF%E9%9C%B2%E5%87%AF(%E5%B0%91%E5%89%8D2%EF%BC%9A%E8%BF%BD%E6%94%BE)#" target="_blank"><img src="image/416.png" alt="少女前線2可露凱" loading="lazy"></a></div>
       </div>
-    </div>
-    <!-- 名言區塊 -->
-    <div class="quote-section">
+    </section>
+    <section class="quote-section">
       <p>我喜歡的一句話：地瓜開心的話會變什麼？地瓜葉</p>
-    </div>
-  </div>
+    </section>
+  </main>
 </body>
 </html>
