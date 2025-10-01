@@ -27,7 +27,7 @@
     .container {
       position: relative;
       z-index: 2;
-      max-width: min(80vw, 1000px); /* 動態最大寬度，適應不同螢幕 */
+      max-width: min(80vw, 1000px);
       margin: 0 auto;
       padding: calc(clamp(60px, 10vh, 80px) + 2.5em) clamp(15px, 3vw, 20px) clamp(15px, 3vw, 20px);
       min-height: calc(100vh - clamp(60px, 10vh, 80px));
@@ -35,7 +35,7 @@
     h1 {
       color: rgb(92, 211, 247);
       text-align: center;
-      font-size: clamp(1.5em, 4vw, 2em); /* 動態字體大小 */
+      font-size: clamp(1.5em, 4vw, 2em);
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
       position: fixed;
       top: clamp(10px, 2vw, 15px);
@@ -63,25 +63,25 @@
     }
     .section h2 {
       text-align: center;
-      font-size: clamp(1.5em, 3.5vw, 1.8em); /* 動態調整標題字體 */
+      font-size: clamp(1.5em, 3.5vw, 1.8em);
       color: rgb(92, 211, 247);
       margin: 0 0 clamp(10px, 2vw, 15px) 0;
     }
     .section p, .section .game-list, .section .anime-list {
-      font-size: clamp(1em, 2.5vw, 1.2em); /* 動態調整段落字體 */
+      font-size: clamp(1em, 2.5vw, 1.2em);
       line-height: 1.6;
-      margin: 0 0 clamp(8px, 1.5vw, 12px) 0; /* 段落間距隨視窗縮放 */
+      margin: 0 0 clamp(8px, 1.5vw, 12px) 0;
       color: #000;
       text-align: center;
     }
     .grid-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* 動態格子大小 */
+      grid-template-columns: repeat(auto-fit, minmax(clamp(120px, 20vw, 160px), 1fr));
       gap: clamp(8px, 2vw, 12px);
-      padding: 10px 0;
+      padding: clamp(8px, 2vw, 10px) 0;
     }
     .grid-item {
-      height: clamp(200px, 25vw, 300px);
+      height: 300px; /* 恢復原始固定高度 */
       overflow: hidden;
       position: relative;
       border: none;
@@ -89,18 +89,19 @@
     }
     .grid-item a {
       display: block;
+      width: 100%;
       height: 100%;
       text-decoration: none;
     }
     .grid-item img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: 100%; /* 恢復原始設置，填滿格子 */
+      object-fit: cover; /* 恢復原始比例，圖片填滿並可能裁切 */
       transition: transform 0.3s ease;
     }
     .grid-item img:hover, .grid-item a:focus img {
       transform: translateY(-10px);
-      outline: 2px solid rgb(92, 211, 247); /* 鍵盤導航支援 */
+      outline: 2px solid rgb(92, 211, 247);
     }
     .quote-section {
       margin: clamp(15px, 3vw, 20px) 0;
@@ -111,7 +112,7 @@
       text-align: center;
     }
     .quote-section p {
-      font-size: clamp(1.1em, 3vw, 1.3em); /* 動態調整名言字體 */
+      font-size: clamp(1.1em, 3vw, 1.3em);
       color: rgb(92, 211, 247);
       margin: 0;
       line-height: 1.6;
